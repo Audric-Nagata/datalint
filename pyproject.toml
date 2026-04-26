@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "datalint"
+version = "0.1.0"
+description = "AI Dataset Quality Auditor"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "Dataudit"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "pandas",
+    "numpy",
+    "scipy",
+    "scikit-learn",
+    "faiss-cpu",
+    "sentence-transformers",
+    "typer",
+    "streamlit",
+    "rich",
+    "jinja2",
+    "plotly",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "ruff",
+    "mypy",
+    "build",
+    "twine",
+]
+
+[project.scripts]
+datalint = "cli.main:app"
+datalint-ui = "cli.ui:run"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["auditor*", "cli*", "app*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 88
+
+[tool.ruff]
+line-length = 88

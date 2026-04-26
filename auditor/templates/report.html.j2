@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Quality Audit Report</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: #f8fafc;
+            color: #1e293b;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 24px;
+        }
+        .header h1 { margin: 0 0 8px 0; font-size: 24px; }
+        .header p { margin: 0; color: #64748b; }
+        .score-card {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .score-value {
+            font-size: 72px;
+            font-weight: bold;
+            line-height: 1;
+        }
+        .score-band {
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        .score-critical { color: #dc2626; }
+        .score-poor { color: #ea580c; }
+        .score-fair { color: #ca8a04; }
+        .score-good { color: #16a34a; }
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .metric {
+            background: #f1f5f9;
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .metric-value { font-size: 24px; font-weight: bold; }
+        .metric-label { font-size: 14px; color: #64748b; }
+        .issues-section {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .issues-section h2 { margin: 0 0 24px 0; font-size: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th {
+            text-align: left;
+            padding: 12px;
+            background: #f8fafc;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #64748b;
+        }
+        td { padding: 12px; border-bottom: 1px solid #e2e8f0; }
+        .severity { font-weight: 600; text-transform: uppercase; font-size: 12px; }
+        .severity-critical { color: #dc2626; }
+        .severity-high { color: #ea580c; }
+        .severity-medium { color: #ca8a04; }
+        .severity-low { color: #16a34a; }
+        .module-scores {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .module-score {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .module-score-label { font-size: 14px; color: #64748b; }
+        .module-score-value { font-size: 24px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Data Quality Audit Report</h1>
+            <p>File: {{ metadata.filename }}</p>
+            <p>Audited: {{ metadata.audited_at }}</p>
+        </div>
+
+        <div class="score-card">
+            <div class="score-value score-{{ score_band.lower() }}">{{ quality_score }}</div>
+            <div class="score-band score-{{ score_band.lower() }}">{{ score_band }}</div>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-value">{{ metadata.rows }}</div>
+                    <div class="metric-label">Rows</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">{{ metadata.columns }}</div>
+                    <div class="metric-label">Columns</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">{{ summary.total }}</div>
+                    <div class="metric-label">Issues</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">{{ summary.critical + summary.high }}</div>
+                    <div class="metric-label">Critical/High</div>
+                </div>
+            </div>
+        </div>
+
+        {% if module_scores %}
+        <div class="issues-section">
+            <h2>Module Scores</h2>
+            <div class="module-scores">
+                {% for module, score in module_scores.items() %}
+                <div class="module-score">
+                    <div class="module-score-label">{{ module }}</div>
+                    <div class="module-score-value">{{ score }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="issues-section">
+            <h2>Issues ({{ summary.total }})</h2>
+            {% if issues %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Severity</th>
+                        <th>Check</th>
+                        <th>Column</th>
+                        <th>Detail</th>
+                        <th>Suggestion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for issue in issues %}
+                    <tr>
+                        <td><span class="severity severity-{{ issue.severity }}">{{ issue.severity }}</span></td>
+                        <td>{{ issue.check }}</td>
+                        <td>{{ issue.column or "-" }}</td>
+                        <td>{{ issue.detail }}</td>
+                        <td>{{ issue.suggestion }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>No issues found. Dataset looks clean!</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

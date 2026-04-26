@@ -1,0 +1,17 @@
+pandas
+numpy
+scipy
+scikit-learn
+faiss-cpu
+sentence-transformers
+typer
+streamlit
+rich
+jinja2
+plotly
+pyarrow
+
+pytest
+black
+ruff
+mypy
