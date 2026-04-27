@@ -6,7 +6,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Any
 
-from auditor.core.engine import AuditResult
+from omnilint.core.engine import AuditResult
 
 
 @dataclass

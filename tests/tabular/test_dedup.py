@@ -1,7 +1,7 @@
 """Tests for dedup checks."""
 
 import pytest
-from auditor.tabular.checks import dedup
+from omnilint.tabular.checks import dedup
 
 
 def test_find_exact_duplicates(df_dirty):

@@ -1,7 +1,7 @@
 """Tests for scorer."""
 
 import pytest
-from auditor.core import scorer
+from omnilint.core import scorer
 
 
 def test_compute():

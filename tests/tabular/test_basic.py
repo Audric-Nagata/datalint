@@ -1,7 +1,7 @@
 """Tests for basic checks."""
 
 import pytest
-from auditor.tabular.checks import basic
+from omnilint.tabular.checks import basic
 
 
 def test_check_missing(df_dirty):

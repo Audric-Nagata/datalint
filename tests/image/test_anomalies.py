@@ -18,8 +18,8 @@ try:
 except ImportError:
     HAS_CV2 = False
 
-from auditor.image.checks import anomalies
-from auditor.core.loader import ImageDataset, ImageEntry
+from omnilint.image.checks import anomalies
+from omnilint.core.loader import ImageDataset, ImageEntry
 
 
 pytestmark = pytest.mark.skipif(not HAS_PIL, reason="PIL not installed")

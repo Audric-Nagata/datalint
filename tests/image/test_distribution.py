@@ -12,8 +12,8 @@ try:
 except ImportError:
     HAS_PIL = False
 
-from auditor.image.checks import distribution
-from auditor.core.loader import ImageDataset, ImageEntry
+from omnilint.image.checks import distribution
+from omnilint.core.loader import ImageDataset, ImageEntry
 
 
 pytestmark = pytest.mark.skipif(not HAS_PIL, reason="PIL not installed")

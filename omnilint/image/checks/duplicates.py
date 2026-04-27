@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from auditor.core.loader import ImageDataset
+from omnilint.core.loader import ImageDataset
 
 
 def run(dataset: ImageDataset) -> list[dict]:

@@ -1,7 +1,7 @@
 """Streamlit UI sidebar with config controls."""
 
 import streamlit as st
-from auditor.core.engine import AuditConfig
+from omnilint.core.engine import AuditConfig
 
 
 def render(mode: str = "tabular") -> tuple:
@@ -13,7 +13,7 @@ def render(mode: str = "tabular") -> tuple:
     Returns:
         (uploaded_file, config, run_button)
     """
-    st.sidebar.title("DataLint")
+    st.sidebar.title("OmniLint")
 
     if mode == "tabular":
         return _render_tabular()

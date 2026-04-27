@@ -1,7 +1,7 @@
 """Tests for importance checks."""
 
 import pytest
-from auditor.tabular.checks import importance
+from omnilint.tabular.checks import importance
 
 
 def test_run_importance(df_leaky):

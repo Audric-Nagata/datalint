@@ -1,7 +1,7 @@
 """Issues table component: filterable issues breakdown."""
 
 import streamlit as st
-from auditor.report.builder import AuditReport
+from omnilint.report.builder import AuditReport
 
 
 def render(report: AuditReport) -> None:

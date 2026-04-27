@@ -7,7 +7,7 @@ from pathlib import Path
 from dataclasses import dataclass, field
 
 import pytest
-from auditor.core.loader import ImageDataset, ImageEntry
+from omnilint.core.loader import ImageDataset, ImageEntry
 
 
 @pytest.fixture

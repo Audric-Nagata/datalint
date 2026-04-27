@@ -6,13 +6,13 @@ from pathlib import Path
 import typer
 from rich import print as rprint
 
-from auditor import AuditEngine
-from auditor.core import loader
-from auditor.core.engine import AuditConfig
-from auditor.report import builder as report_builder
-from auditor.report import renderer_json, renderer_html, renderer_cli
+from omnilint import AuditEngine
+from omnilint.core import loader
+from omnilint.core.engine import AuditConfig
+from omnilint.report import builder as report_builder
+from omnilint.report import renderer_json, renderer_html, renderer_cli
 
-app = typer.Typer(help="DataLint - AI Dataset Quality Auditor")
+app = typer.Typer(help="OmniLint - AI Dataset Quality auditor")
 
 
 @app.command()
@@ -138,8 +138,8 @@ def _save_report(report, output):
 @app.command()
 def version() -> None:
     """Show version information."""
-    from auditor import __version__
-    rprint(f"DataLint version: {__version__}")
+    from omnilint import __version__
+    rprint(f"OmniLint version: {__version__}")
 
 
 if __name__ == "__main__":

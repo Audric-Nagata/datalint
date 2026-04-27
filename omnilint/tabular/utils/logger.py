@@ -5,7 +5,7 @@ import sys
 from typing import Any
 
 
-def get_logger(name: str = "auditor") -> logging.Logger:
+def get_logger(name: str = "omnilint") -> logging.Logger:
     """Get configured logger."""
     logger = logging.getLogger(name)
     if not logger.handlers:

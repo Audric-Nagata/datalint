@@ -1,10 +1,10 @@
-# DataLint
+# OmniLint
 
 AI Dataset Quality Auditor — detect, report, and score quality issues in tabular and image datasets before they break your model.
 
 ## Overview
 
-DataLint analyzes raw datasets (CSV/Parquet for tabular, COCO/YOLO for images) and surfaces actionable quality issues with a composite **Data Quality Score (DQS)**. It serves as a gatekeeper between raw data and ML pipelines.
+OmniLint analyzes raw datasets (CSV/Parquet for tabular, COCO/YOLO for images) and surfaces actionable quality issues with a composite **Data Quality Score (DQS)**. It serves as a gatekeeper between raw data and ML pipelines.
 
 ## Features
 
@@ -27,12 +27,12 @@ DataLint analyzes raw datasets (CSV/Parquet for tabular, COCO/YOLO for images) a
 
 ### Base (Tabular Only)
 ```bash
-pip install datalint
+pip install omnilint
 ```
 
 ### With Image Support
 ```bash
-pip install datalint[image]
+pip install omnilint[image]
 ```
 
 ### Development
@@ -44,19 +44,19 @@ pip install -e ".[dev,image]"
 
 ### CLI - Tabular
 ```bash
-datalint run dataset.csv --target label --output report.html
+OmniLint run dataset.csv --target label --output report.html
 ```
 
 ### CLI - Image
 ```bash
-datalint run dataset/ --mode image --format yolo --output report.json
+OmniLint run dataset/ --mode image --format yolo --output report.json
 ```
 
 ### Python API
 ```python
 # Tabular
-from auditor.core import load, AuditEngine
-from auditor.core.engine import AuditConfig
+from omnilint.core import load, AuditEngine
+from omnilint.core.engine import AuditConfig
 
 df, schema = load("dataset.csv")
 config = AuditConfig(target_col="label")
@@ -66,7 +66,7 @@ result = engine.run()
 print(result.quality_score)  # e.g., 73.4
 
 # Image
-from auditor.core.loader import load
+from omnilint.core.loader import load
 
 image_dataset = load("path/to/coco_data")
 image_config = AuditConfig(mode="image")
@@ -113,7 +113,7 @@ streamlit run app/streamlit_app.py
 ## Project Structure
 
 ```
-datalint/
+OmniLint/
 ├── auditor/
 │   ├── core/           # Engine, loader (CSV/COCO/YOLO), scorer
 │   ├── tabular/        # Tabular audit modules

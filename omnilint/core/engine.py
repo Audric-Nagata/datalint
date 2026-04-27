@@ -6,9 +6,9 @@ import pandas as pd
 from dataclasses import dataclass, field
 from typing import Any, Literal
 
-from auditor.core import loader, scorer
+from omnilint.core import loader, scorer
 
-from auditor.tabular.checks import (
+from omnilint.tabular.checks import (
     basic,
     distribution,
     labels,
@@ -16,9 +16,9 @@ from auditor.tabular.checks import (
     importance,
     dedup,
 )
-import auditor.image.checks as image_checks
+import omnilint.image.checks as image_checks
 
-from auditor.core.loader import ImageDataset
+from omnilint.core.loader import ImageDataset
 
 
 @dataclass

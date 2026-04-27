@@ -1,9 +1,9 @@
 """Quickstart example script."""
 
-from auditor import AuditEngine, load_data
-from auditor.core.engine import AuditConfig
-from auditor.report import renderer_cli, renderer_json
-from auditor.report import builder
+from omnilint import AuditEngine, load_data
+from omnilint.core.engine import AuditConfig
+from omnilint.report import renderer_cli, renderer_json
+from omnilint.report import builder
 import sys
 
 

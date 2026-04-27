@@ -1,10 +1,10 @@
-"""DataLint - AI Dataset Quality Auditor.
+"""DataLint - AI Dataset Quality omnilint.
 
 Supports tabular (CSV/Parquet) and image (COCO/YOLO) datasets.
 """
 
-from auditor.core.engine import AuditEngine, AuditConfig, IssueRecord, AuditResult
-from auditor.core.loader import load, ImageDataset, ImageEntry
+from omnilint.core.engine import AuditEngine, AuditConfig, IssueRecord, AuditResult
+from omnilint.core.loader import load, ImageDataset, ImageEntry
 
 __version__ = "0.2.0"
 

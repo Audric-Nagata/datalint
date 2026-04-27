@@ -7,9 +7,9 @@ import tempfile
 from pathlib import Path
 from io import StringIO
 
-from auditor.core import loader
-from auditor.core.engine import AuditEngine, AuditConfig
-from auditor.report import builder as report_builder
+from omnilint.core import loader
+from omnilint.core.engine import AuditEngine, AuditConfig
+from omnilint.report import builder as report_builder
 
 from app.components import (
     sidebar,
@@ -20,9 +20,9 @@ from app.components import (
 )
 from app.components.image import image_module_explorer
 
-st.set_page_config(page_title="DataLint", page_icon="", layout="wide")
+st.set_page_config(page_title="OmniLint", page_icon="", layout="wide")
 
-st.title("DataLint - Dataset Quality Auditor")
+st.title("OmniLint - Dataset Quality auditor")
 
 mode = st.radio(
     "Select audit mode",

@@ -5,8 +5,8 @@ from __future__ import annotations
 import pytest
 from pathlib import Path
 
-from auditor.image.checks import integrity
-from auditor.core.loader import ImageDataset, ImageEntry
+from omnilint.image.checks import integrity
+from omnilint.core.loader import ImageDataset, ImageEntry
 
 
 def test_check_corrupt_files_none_exist(sample_image_dataset: ImageDataset):

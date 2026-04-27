@@ -5,8 +5,8 @@ from __future__ import annotations
 import pytest
 from pathlib import Path
 
-from auditor.image.checks import labels
-from auditor.core.loader import ImageDataset, ImageEntry
+from omnilint.image.checks import labels
+from omnilint.core.loader import ImageDataset, ImageEntry
 
 
 def test_check_label_file_mismatch_none(sample_image_dataset: ImageDataset):

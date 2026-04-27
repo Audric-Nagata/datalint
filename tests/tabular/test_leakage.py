@@ -1,7 +1,7 @@
 """Tests for leakage detection."""
 
 import pytest
-from auditor.tabular.checks import leakage
+from omnilint.tabular.checks import leakage
 
 
 def test_check_numeric_leakage(df_leaky):

@@ -1,7 +1,7 @@
 """Tests for distribution checks."""
 
 import pytest
-from auditor.tabular.checks import distribution
+from omnilint.tabular.checks import distribution
 
 
 def test_check_skewness():

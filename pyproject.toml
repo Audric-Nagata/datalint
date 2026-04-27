@@ -3,14 +3,14 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "datalint"
+name = "omnilint"
 version = "0.1.0"
 description = "AI Dataset Quality Auditor - Tabular & Image"
 readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}
 authors = [
-    {name = "Dataudit"}
+    {name = "Audtic Nagata"}
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -52,8 +52,8 @@ image = [
 ]
 
 [project.scripts]
-datalint = "cli.main:app"
-datalint-ui = "cli.ui:run"
+omnilint = "cli.main:app"
+omnilint-ui = "cli.ui:run"
 
 [tool.setuptools.packages.find]
 where = ["."]

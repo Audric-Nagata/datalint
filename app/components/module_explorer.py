@@ -1,7 +1,7 @@
 """Module explorer: per-module expandable detail panels."""
 
 import streamlit as st
-from auditor.report.builder import AuditReport
+from omnilint.report.builder import AuditReport
 
 
 def render(report: AuditReport, module_details: dict | None = None) -> None:

@@ -1,5 +1,5 @@
 """Image audit package."""
 
-from auditor.image import checks, utils
+from omnilint.image import checks, utils
 
 __all__ = ["checks", "utils"]

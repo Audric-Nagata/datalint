@@ -1,7 +1,7 @@
 """Score card component: DQS gauge and band display."""
 
 import streamlit as st
-from auditor.report.builder import AuditReport
+from omnilint.report.builder import AuditReport
 
 
 def render(report: AuditReport) -> None:

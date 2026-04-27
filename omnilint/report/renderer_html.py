@@ -2,7 +2,7 @@
 
 from jinja2 import Environment, FileSystemLoader
 from pathlib import Path
-from auditor.report.builder import AuditReport
+from omnilint.report.builder import AuditReport
 
 
 def render(report: AuditReport, output_path: str, template_path: str | None = None) -> None:

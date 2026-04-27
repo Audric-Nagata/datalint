@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 import plotly.express as px
-from auditor.report.builder import AuditReport
+from omnilint.report.builder import AuditReport
 
 
 def render(df: pd.DataFrame) -> None:

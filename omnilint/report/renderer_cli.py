@@ -3,7 +3,7 @@
 from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
-from auditor.report.builder import AuditReport
+from omnilint.report.builder import AuditReport
 
 
 def render(report: AuditReport) -> None:

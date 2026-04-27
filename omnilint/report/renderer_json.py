@@ -1,7 +1,7 @@
 """JSON report renderer."""
 
 import json
-from auditor.report.builder import AuditReport
+from omnilint.report.builder import AuditReport
 
 
 def render(report: AuditReport, output_path: str) -> None:

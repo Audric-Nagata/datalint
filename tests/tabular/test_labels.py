@@ -1,7 +1,7 @@
 """Tests for label checks."""
 
 import pytest
-from auditor.tabular.checks import labels
+from omnilint.tabular.checks import labels
 
 
 def test_check_imbalance(df_imbalanced):

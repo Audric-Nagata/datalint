@@ -18,8 +18,8 @@ try:
 except ImportError:
     HAS_IMAGEHASH = False
 
-from auditor.image.checks import duplicates
-from auditor.core.loader import ImageDataset, ImageEntry
+from omnilint.image.checks import duplicates
+from omnilint.core.loader import ImageDataset, ImageEntry
 
 
 pytestmark = pytest.mark.skipif(not HAS_PIL, reason="PIL not installed")

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import numpy as np
 from PIL import Image
-from auditor.core.loader import ImageDataset
+from omnilint.core.loader import ImageDataset
 
 
 def run(dataset: ImageDataset) -> list[dict]:
