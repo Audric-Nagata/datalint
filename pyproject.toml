@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "omnilint"
-version = "0.1.0"
+version = "0.1.1"
 description = "AI Dataset Quality Auditor - Tabular & Image"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -57,7 +57,7 @@ omnilint-ui = "cli.ui:run"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["auditor*", "cli*", "app*"]
+include = ["omnilint*", "cli*", "app*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

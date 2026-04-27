@@ -548,6 +548,6 @@ MigrationBackup/
 dist/
 datalint.egg-info/
 omnilint.egg-info/
-
+photos/
 
 # End of https://www.toptal.com/developers/gitignore/api/python,vs,visualstudiocode

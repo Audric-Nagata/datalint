@@ -114,7 +114,7 @@ streamlit run app/streamlit_app.py
 
 ```
 OmniLint/
-├── auditor/
+├── omnilint/
 │   ├── core/           # Engine, loader (CSV/COCO/YOLO), scorer
 │   ├── tabular/        # Tabular audit modules
 │   │   ├── checks/     # basic, distribution, labels, leakage, importance, dedup
@@ -147,6 +147,8 @@ OmniLint/
 - **Hashing**: imagehash (pHash)
 - **Embeddings**: OpenAI CLIP (ViT-B/32)
 - **Blur**: OpenCV Laplacian
+
+See full release history in [CHANGELOG.md](https://github.com/Audric-Nagata/OmniLint/blob/main/CHANGELOG.md)
 
 ## License
 
