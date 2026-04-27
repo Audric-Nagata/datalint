@@ -1,5 +1,6 @@
 """Main Streamlit UI entrypoint."""
 
+from omnilint.app.components import distribution_charts, issues_table, module_explorer, score_card
 import streamlit as st
 import pandas as pd
 import zipfile
@@ -11,14 +12,10 @@ from omnilint.core import loader
 from omnilint.core.engine import AuditEngine, AuditConfig
 from omnilint.report import builder as report_builder
 
-from app.components import (
+from omnilint.app.components import (
     sidebar,
-    score_card,
-    issues_table,
-    distribution_charts,
-    module_explorer,
 )
-from app.components.image import image_module_explorer
+from omnilint.app.components.image import image_module_explorer
 
 st.set_page_config(page_title="OmniLint", page_icon="", layout="wide")
 
