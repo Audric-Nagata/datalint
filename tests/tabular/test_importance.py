@@ -1,7 +1,7 @@
 """Tests for importance checks."""
 
 import pytest
-from auditor.checks import importance
+from auditor.tabular.checks import importance
 
 
 def test_run_importance(df_leaky):

@@ -1,13 +1,20 @@
+"""UI launcher for Streamlit."""
+
 import subprocess
-import os
-import inspect
-import app
+import sys
+from pathlib import Path
+
 
 def run():
-    # find installed path of your app package
-    app_path = os.path.dirname(inspect.getfile(app))
-    target = os.path.join(app_path, "streamlit_app.py")
+    """Launch the Streamlit UI."""
+    app_path = Path("app/streamlit_app.py")
+    
+    if not app_path.exists():
+        print("Error: app/streamlit_app.py not found")
+        sys.exit(1)
+    
+    subprocess.run(["streamlit", "run", str(app_path)])
 
-    subprocess.run([
-        "streamlit", "run", target
-    ])
+
+if __name__ == "__main__":
+    run()

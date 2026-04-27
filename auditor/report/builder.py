@@ -16,6 +16,7 @@ class IssueRecord:
     detail: str
     suggestion: str
     column: str | None = None
+    asset: str | None = None  # Image filename for image mode
 
 
 @dataclass
@@ -26,9 +27,16 @@ class AuditReport:
     issues: list[IssueRecord]
     summary: dict
     module_scores: dict[str, float] = field(default_factory=dict)
+    mode: str = "tabular"  # "tabular" or "image"
 
 
-def build(audit_result: AuditResult, source: str, rows: int, columns: int) -> AuditReport:
+def build(
+    audit_result: AuditResult,
+    source: str,
+    rows: int,
+    columns: int,
+    mode: str = "tabular",
+) -> AuditReport:
     """Build final AuditReport from AuditResult."""
     summary = {
         "total": audit_result.total_issues,
@@ -38,18 +46,22 @@ def build(audit_result: AuditResult, source: str, rows: int, columns: int) -> Au
         "low": sum(1 for i in audit_result.issues if i.severity == "low"),
     }
 
+    metadata = {
+        "filename": source,
+        "rows": rows,
+        "columns": columns,
+        "audited_at": datetime.utcnow().isoformat() + "Z",
+        "mode": mode,
+    }
+
     return AuditReport(
-        metadata={
-            "filename": source,
-            "rows": rows,
-            "columns": columns,
-            "audited_at": datetime.utcnow().isoformat() + "Z",
-        },
+        metadata=metadata,
         quality_score=audit_result.quality_score,
         score_band=audit_result.score_band,
         issues=audit_result.issues,
         summary=summary,
         module_scores=audit_result.module_scores,
+        mode=mode,
     )
 
 

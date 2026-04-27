@@ -2,7 +2,8 @@
 
 from auditor import AuditEngine, load_data
 from auditor.core.engine import AuditConfig
-from auditor.report import builder, renderer_json, renderer_cli
+from auditor.report import renderer_cli, renderer_json
+from auditor.report import builder
 import sys
 
 

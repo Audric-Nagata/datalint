@@ -9,9 +9,15 @@ streamlit
 rich
 jinja2
 plotly
-pyarrow
+pyyaml
 
 pytest
 black
 ruff
 mypy
+
+Pillow
+opencv-python
+imagehash
+torch
+clip

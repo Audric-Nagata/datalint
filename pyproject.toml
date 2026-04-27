@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "datalint"
 version = "0.1.0"
-description = "AI Dataset Quality Auditor"
+description = "AI Dataset Quality Auditor - Tabular & Image"
 readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}
@@ -31,6 +31,7 @@ dependencies = [
     "rich",
     "jinja2",
     "plotly",
+    "pyyaml",
 ]
 
 [project.optional-dependencies]
@@ -41,6 +42,13 @@ dev = [
     "mypy",
     "build",
     "twine",
+]
+image = [
+    "Pillow",
+    "opencv-python",
+    "imagehash",
+    "torch",
+    "clip",
 ]
 
 [project.scripts]
