@@ -29,6 +29,7 @@ def run(
     blur_threshold: float = typer.Option(100, "--blur-threshold", help="Blur detection threshold (image mode)"),
 ) -> None:
     """Run data quality audit on a dataset."""
+    print("Omnilint CLI is running...")
     try:
         data, schema = loader.load(source)
     except Exception as e:

@@ -7,7 +7,7 @@ from pathlib import Path
 
 def run():
     """Launch the Streamlit UI."""
-    app_path = Path("omnilint/app/streamlit_app.py")
+    app_path = Path(__file__).parent.parent / "app" / "streamlit_app.py"
     
     if not app_path.exists():
         print("Error: omnilint/app/streamlit_app.py not found")

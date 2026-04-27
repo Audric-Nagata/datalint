@@ -6,7 +6,9 @@ Supports tabular (CSV/Parquet) and image (COCO/YOLO) datasets.
 from omnilint.core.engine import AuditEngine, AuditConfig, IssueRecord, AuditResult
 from omnilint.core.loader import load, ImageDataset, ImageEntry
 
-__version__ = "0.2.0"
+from omnilint.cli.main import app as cli_main
+
+__version__ = "0.1.5"
 
 __all__ = [
     "AuditEngine",
@@ -16,4 +18,5 @@ __all__ = [
     "load",
     "ImageDataset",
     "ImageEntry",
+    "cli_main",
 ]
